@@ -1,0 +1,6 @@
+{
+  "left_of": "El {obj1} está a la izquierda de su {obj2}.",
+  "right_of": "El {obj1} se encuentra a la derecha de su {obj2}.",
+  "above": "El {obj1} está justo detrás o encima de {obj2}.",
+  "scene_summary": "Tengo delante los siguientes objetos: {lista_objetos}."
+}
