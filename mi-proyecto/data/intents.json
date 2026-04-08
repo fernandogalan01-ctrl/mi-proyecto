@@ -2,17 +2,17 @@
   "intents": [
     {
       "intent": "find_object",
-      "patterns": ["dónde está", "encuentra", "busco", "dónde dejé"],
+      "patterns": ["Where is", "find", "search", "locate"],
       "action": "query_location"
     },
     {
       "intent": "describe_scene",
-      "patterns": ["qué hay en la mesa", "describe lo que ves", "qué tengo delante"],
+      "patterns": ["what is on the table", "describe what you see", "what do I have in front of me"],
       "action": "list_objects"
     },
     {
       "intent": "check_safety",
-      "patterns": ["hay peligro", "está cerca del borde", "se puede caer"],
+      "patterns": ["is there a danger", "is it near the edge", "could it fall"],
       "action": "query_hazards"
     }
   ]
