@@ -1,0 +1,19 @@
+{
+  "intents": [
+    {
+      "intent": "find_object",
+      "patterns": ["dónde está", "encuentra", "busco", "dónde dejé"],
+      "action": "query_location"
+    },
+    {
+      "intent": "describe_scene",
+      "patterns": ["qué hay en la mesa", "describe lo que ves", "qué tengo delante"],
+      "action": "list_objects"
+    },
+    {
+      "intent": "check_safety",
+      "patterns": ["hay peligro", "está cerca del borde", "se puede caer"],
+      "action": "query_hazards"
+    }
+  ]
+}
