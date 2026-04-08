@@ -1,0 +1,18 @@
+# data/custom_ds.yaml
+# Training configuration for the Assistive Vision System
+
+# Paths to your dataset folders (Use absolute paths for safety)
+path: C:/Users/ferga/mi-proyecto/my-dataset 
+train: train/images
+val: val/images
+
+# Number of classes (Change this based on how many objects you are training)
+nc: 5 
+
+# Class Names (Must match the order of your label IDs)
+names:
+  0: cup
+  1: laptop
+  2: potted plant
+  3: chair
+  4: book
