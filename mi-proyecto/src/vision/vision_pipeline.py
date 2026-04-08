@@ -44,7 +44,6 @@ class AssistiveVisionSystem:
                 if i == j: continue
                 if obj_a['cx'] < obj_b['cx'] - self.threshold:
                     knowledge_base.append(f"left_of({obj_a['name']}, {obj_b['name']})")
-
                 if obj_a['cy'] < obj_b['cy'] - self.threshold:
                     knowledge_base.append(f"behind({obj_a['name']}, {obj_b['name']})")
                 elif obj_a['cy'] > obj_b['cy'] + self.threshold:
