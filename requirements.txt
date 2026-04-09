@@ -1,0 +1,12 @@
+# Computer Vision & AI 
+ultralytics      
+opencv-python    
+torch          
+torchvision      
+
+# NLP & Voice 
+pyttsx3         
+
+# Utilities 
+numpy            
+PyYAML           
