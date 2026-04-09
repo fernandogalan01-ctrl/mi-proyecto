@@ -1,35 +1,11 @@
-# data/custom_ds.yaml
-# Custom Dataset Configuration for YOLOv8 Training
-
-# C:/Users/ferga/mi-proyecto/my-dataset/custom_ds.yaml
+# C:/Users/ferga/mi-proyecto/mi-proyecto-1/mi-proyecto/my-dataset/custom_ds.yaml
 
 path: C:/Users/ferga/mi-proyecto/mi-proyecto-1/mi-proyecto/my-dataset 
 train: train/images
-val: val/images
-
+val: valid/images
+test: test/images
 
 nc: 21 
 
-
-names:
-  0: bathtub
-  1: bed
-  2: brush
-  3: chair
-  4: closed door
-  5: couch
-  6: countertop
-  7: decor
-  8: dressing table
-  9: garbage
-  10: plant
-  11: refrigerator
-  12: shower
-  13: sink
-  14: stairs
-  15: stand
-  16: table
-  17: toilet
-  18: towels
-  19: tv
-  20: tv stand
+# Lista completa de 21 clases en el orden correcto
+names: ['bathtub', 'bed', 'brush', 'chair', 'closed door', 'couch', 'countertop', 'decor', 'dressing table', 'garbage', 'plant', 'refrigerator', 'shower', 'sink', 'stairs', 'stand', 'table', 'toilet', 'towels', 'tv', 'tv stand']

@@ -1,6 +1,6 @@
 {
   "left_of": "The {obj1} is to the left of the {obj2}.",
   "right_of": "The {obj1} is to the right of the {obj2}.",
-  "above": "The {obj1} is above the {obj2}.",
-  "scene_summary": "I have the following objects in front of me: {lista_objetos}."
+  "in_front_of": "The {obj1} is closer to you than the {obj2}.",
+  "scene_summary": "I have detected the following items: {object_list}."
 }

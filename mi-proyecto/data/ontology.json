@@ -1,7 +1,8 @@
 {
-  "electronics": ["laptop", "keyboard", "mouse", "tv", "cell phone"],
-  "furniture": ["chair", "dining table", "couch", "bed"],
-  "drinkware": ["cup", "bottle", "wine glass"],
-  "reading_material": ["book", "notebook"],
-  "decor": ["potted plant", "vase", "clock"]
+  "electronics": ["laptop", "tv", "cell phone"],
+  "furniture": ["bed", "chair", "couch", "table", "stand", "tv stand", "dressing table", "countertop"],
+  "plumbing": ["bathtub", "sink", "toilet", "shower"],
+  "safety_hazard": ["stairs", "garbage", "closed door"],
+  "home_items": ["brush", "towels", "decor", "plant"],
+  "appliances": ["refrigerator"]
 }

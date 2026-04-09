@@ -12,7 +12,10 @@ def train_custom_model():
         data='data/custom_ds.yaml', 
         epochs=50, 
         imgsz=640, 
-        device='cpu' 
+        device='cpu',
+        workers=0,
+        exist_ok=True,
+        name='train'
     )
     print("Training Complete")
     print("Your new model is saved in: runs/detect/train/weights/best.pt")

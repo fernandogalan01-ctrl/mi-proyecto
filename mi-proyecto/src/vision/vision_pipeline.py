@@ -27,25 +27,27 @@ class AssistiveVisionSystem:
         results = self.model(processed_img, verbose=False)
         detected_entities = []
         if len(results) > 0:
-            for box in results[0].boxes:
+            for i, box in enumerate(results[0].boxes):
                 cls_id = int(box.cls[0])
                 name = self.model.names[cls_id]
                 coords = box.xyxy[0].tolist()
                 cx = (coords[0] + coords[2]) / 2
                 cy = (coords[1] + coords[3]) / 2
-                detected_entities.append({'name': name, 'cx': cx, 'cy': cy})
+                detected_entities.append({'id': i, 'name': name, 'cx': cx, 'cy': cy})
         knowledge_base = []
-        for i, obj_a in enumerate(detected_entities):
-            knowledge_base.append(f"object({obj_a['name']})") 
+        for obj_a in detected_entities:
+            name_a = obj_a['name']
+            knowledge_base.append(f"object({name_a})") 
             for category, items in self.ontology.items():
-                if obj_a['name'] in items:
-                    knowledge_base.append(f"is_a({obj_a['name']}, {category})")
-            for j, obj_b in enumerate(detected_entities):
-                if i == j: continue
+                if name_a in items:
+                    knowledge_base.append(f"is_a({name_a}, {category})")
+            for obj_b in detected_entities:
+                if obj_a['id'] == obj_b['id']: continue
+                name_b = obj_b['name']
                 if obj_a['cx'] < obj_b['cx'] - self.threshold:
-                    knowledge_base.append(f"left_of({obj_a['name']}, {obj_b['name']})")
-                if obj_a['cy'] < obj_b['cy'] - self.threshold:
-                    knowledge_base.append(f"behind({obj_a['name']}, {obj_b['name']})")
-                elif obj_a['cy'] > obj_b['cy'] + self.threshold:
-                    knowledge_base.append(f"in_front_of({obj_a['name']}, {obj_b['name']})")
-        return list(set(knowledge_base)), results[0] # CRITICAL: Ensure this returns two items
+                    knowledge_base.append(f"left_of({name_a}, {name_b})")
+                elif obj_a['cx'] > obj_b['cx'] + self.threshold:
+                    knowledge_base.append(f"right_of({name_a}, {name_b})")
+                if obj_a['cy'] > obj_b['cy'] + self.threshold:
+                    knowledge_base.append(f"in_front_of({name_a}, {name_b})")
+        return list(set(knowledge_base)), results[0]
