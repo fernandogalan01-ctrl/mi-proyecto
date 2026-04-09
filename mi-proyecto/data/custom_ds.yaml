@@ -7,10 +7,10 @@ path: C:/Users/ferga/mi-proyecto/mi-proyecto-1/mi-proyecto/my-dataset
 train: train/images
 val: val/images
 
-# Ahora son 21 clases
+
 nc: 21 
 
-# TIENES que copiar exactamente el orden del dataset descargado
+
 names:
   0: bathtub
   1: bed
