@@ -1,20 +1,35 @@
 # data/custom_ds.yaml
 # Custom Dataset Configuration for YOLOv8 Training
 
-# Base path to the dataset 
+# C:/Users/ferga/mi-proyecto/my-dataset/custom_ds.yaml
+
 path: C:/Users/ferga/mi-proyecto/mi-proyecto-1/mi-proyecto/my-dataset 
 train: train/images
 val: val/images
-# Number of classes in the dataset
-nc: 9 
-# Class Names 
+
+# Ahora son 21 clases
+nc: 21 
+
+# TIENES que copiar exactamente el orden del dataset descargado
 names:
-  0: cup
-  1: laptop
-  2: potted plant
+  0: bathtub
+  1: bed
+  2: brush
   3: chair
-  4: book
-  5: window
-  6: door
-  7: bottle
-  8: computer 
+  4: closed door
+  5: couch
+  6: countertop
+  7: decor
+  8: dressing table
+  9: garbage
+  10: plant
+  11: refrigerator
+  12: shower
+  13: sink
+  14: stairs
+  15: stand
+  16: table
+  17: toilet
+  18: towels
+  19: tv
+  20: tv stand
