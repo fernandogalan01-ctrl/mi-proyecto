@@ -1,31 +1,37 @@
-import os   
-import sys    
-import pyttsx3
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from vision.vision_pipeline import AssistiveVisionSystem 
-from reasoning.inference_engine import InferenceEngine
-from nlp.dialog_manager import DialogManager
+import os
+import sys
+import cv2
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(base_dir)
+from src.vision.vision_pipeline import AssistiveVisionSystem
+from src.reasoning.inference_engine import InferenceEngine
+from src.nlp.dialog_manager import DialogManager
 def main():
-    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    image_path = os.path.join(base_dir, 'test_images', 'mesa.jpg')
-    model_path = os.path.join(base_dir, 'model', 'best.pt')
+    custom_model = os.path.join(base_dir, 'model', 'best.pt')
+    model_path = custom_model if os.path.exists(custom_model) else os.path.join(base_dir, 'model', 'yolov8n.pt')
     vision = AssistiveVisionSystem(model_path=model_path)
-    reasoner = InferenceEngine()
-    dialog = DialogManager(voice_speed=150)
-    print("\n[PERCEPTION] Analyzing scene...")
-    try:
-        if not os.path.exists(image_path):
-            print(f"Error: The image was not found at {image_path}")
-            return
-        facts, _ = vision.analyze_scene(image_path)
-        scene_info = reasoner.get_scene_report(facts)
-        voice_report = dialog.generate_full_report(scene_info)
-        print("-" * 30)
-        print("[OUTPUT] Generated Report:")   
-        print(voice_report)
-        print("-" * 30)
-    except Exception as e:
-        print(f"Error during system execution: {e}")
+    engine = InferenceEngine()
+    dialog = DialogManager()
+    test_path = os.path.join(base_dir, "my-dataset", "test", "images")
+    if not os.path.exists(test_path): 
+        print("Ruta de test no encontrada")
+        return 
+    images = [f for f in os.listdir(test_path) if f.lower().endswith(('.jpg', '.png'))]
+    for img in images:
+        path = os.path.join(test_path, img)
+        facts, res = vision.analyze_scene(path)
+        report = engine.get_scene_report(facts)  
+        scene_description = report[0]
+        dialog.speak(scene_description)
+        cv2.imshow("Asistente Visual", res.plot())
+        cv2.waitKey(100)
+        test_audio_path = os.path.join(base_dir, 'my-dataset', 'test', 'audio', 'pregunta_prueba.wav')
+        if os.path.exists(test_audio_path):
+             user_question = dialog.listen_and_transcribe(test_audio_path)
+             print(f"Usuario preguntó: {user_question}")
+             dialog.answer_question_about_scene(scene_description, user_question)
+        else:
+             print(f"AVISO: No se encontró el audio de prueba en: {test_audio_path}")
+        cv2.waitKey(0) 
 if __name__ == "__main__":
     main()
-
