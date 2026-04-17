@@ -2,59 +2,23 @@
   "intents": [
     {
       "intent": "describe_scene",
-      "patterns": [
-        "what do you see",
-        "describe the room",
-        "what is in front of me",
-        "what is here",
-        "describe scene"
-      ],
+      "patterns": ["what do you see", "describe the room", "what is here", "scan area"],
       "action": "list_objects"
     },
     {
-      "intent": "find_object",
-      "patterns": [
-        "where is the",
-        "find the",
-        "locate the",
-        "search for",
-        "is there a"
-      ],
-      "action": "query_location"
-    },
-    {
       "intent": "check_safety",
-      "patterns": [
-        "is it safe",
-        "any hazards",
-        "am I in danger",
-        "watch out",
-        "stairs",
-        "obstacles",
-        "check safety"
-      ],
+      "patterns": ["is it safe", "any hazards", "am I in danger", "stairs", "obstacles"],
       "action": "query_hazards"
     },
     {
-      "intent": "check_location",
-      "patterns": [
-        "where am I",
-        "which room is this",
-        "am I in the bathroom",
-        "am I in the kitchen",
-        "identify room"
-      ],
-      "action": "infer_room"
+      "intent": "find_object",
+      "patterns": ["where is the mirror", "find the door", "locate the window", "search for"],
+      "action": "query_location"
     },
     {
-      "intent": "greeting",
-      "patterns": [
-        "hello",
-        "hi assistant",
-        "help me",
-        "what can you do"
-      ],
-      "action": "provide_help"
+      "intent": "check_location",
+      "patterns": ["where am I", "which room is this", "identify room"],
+      "action": "infer_room"
     }
   ]
 }

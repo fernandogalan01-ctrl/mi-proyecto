@@ -1,11 +1,14 @@
-# C:/Users/ferga/mi-proyecto/mi-proyecto-1/mi-proyecto/my-dataset/custom_ds.yaml
-
-path: C:/Users/ferga/mi-proyecto/mi-proyecto-1/mi-proyecto/my-dataset 
+# Ruta raíz absoluta 
+path: 'C:/Users/ferga/mi-proyecto/mi-proyecto-1/mi-proyecto/my-dataset'
+# Subcarpetas
 train: train/images
-val: valid/images
+val: val/images
 test: test/images
-
-nc: 21 
-
-# Lista completa de 21 clases en el orden correcto
-names: ['bathtub', 'bed', 'brush', 'chair', 'closed door', 'couch', 'countertop', 'decor', 'dressing table', 'garbage', 'plant', 'refrigerator', 'shower', 'sink', 'stairs', 'stand', 'table', 'toilet', 'towels', 'tv', 'tv stand']
+# Clases 
+nc: 21
+names: [
+  'bathtub', 'bed', 'brush', 'chair', 'closed door', 
+  'couch', 'countertop', 'garbage', 'plant', 'refrigerator', 
+  'shower', 'sink', 'stairs', 'table', 'toilet', 
+  'towels', 'tv', 'tv stand', 'door', 'window', 'mirror'
+]

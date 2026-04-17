@@ -1,8 +1,7 @@
 {
-  "electronics": ["laptop", "tv", "cell phone"],
-  "furniture": ["bed", "chair", "couch", "table", "stand", "tv stand", "dressing table", "countertop"],
-  "plumbing": ["bathtub", "sink", "toilet", "shower"],
-  "safety_hazard": ["stairs", "garbage", "closed door"],
-  "home_items": ["brush", "towels", "decor", "plant"],
-  "appliances": ["refrigerator"]
+    "bathroom": ["toilet", "bathtub", "shower", "sink", "brush", "towels", "mirror"],
+    "kitchen": ["refrigerator", "countertop", "garbage"],
+    "living_room": ["couch", "tv", "tv stand", "chair", "table", "plant", "window"],
+    "bedroom": ["bed", "door", "plant"],
+    "danger_zones": ["stairs", "garbage"]
 }

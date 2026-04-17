@@ -1,23 +1,28 @@
-from ultralytics import YOLO
 import os
-def train_custom_model():
-    """
-    Fine-tunes the YOLOv8 model using the custom dataset configuration.
-    """
-    print(" Starting Model Fine-Tuning ")
-    # Load the pre-trained YOLOv8 model
-    model = YOLO('model/yolov8n.pt')
-    # Train the model on the custom dataset
-    results = model.train(
-        data='data/custom_ds.yaml', 
-        epochs=50, 
-        imgsz=640, 
-        device='cpu',
-        workers=0,
-        exist_ok=True,
-        name='train'
+from ultralytics import YOLO
+def train_ultimate_model():
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    yaml_path = os.path.abspath(os.path.join(base_dir, 'data', 'custom_ds.yaml'))
+    model_path = os.path.join(base_dir, 'model', 'yolov8n.pt') 
+    print("Iniciando entrenamiento...")
+    model = YOLO(model_path)
+    model.train(
+        data=yaml_path,
+        epochs=150,          
+        patience=30,         
+        imgsz=640,
+        device='cpu',        
+        batch=8,             
+        mosaic=1.0,          
+        degrees=10.0,        
+        fliplr=0.5,          
+        mixup=0.1,           
+        hsv_h=0.015,         
+        hsv_s=0.5,           
+        hsv_v=0.2,           
+        name='guia_espacial_definitivo',
+        exist_ok=True
     )
-    print("Training Complete")
-    print("Your new model is saved in: runs/detect/train/weights/best.pt")
+    print("\n¡Entrenamiento listo!")
 if __name__ == "__main__":
-    train_custom_model()
+    train_ultimate_model()

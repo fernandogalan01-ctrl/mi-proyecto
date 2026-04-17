@@ -1,6 +1,15 @@
 {
-  "left_of": "The {obj1} is to the left of the {obj2}.",
-  "right_of": "The {obj1} is to the right of the {obj2}.",
-  "in_front_of": "The {obj1} is closer to you than the {obj2}.",
-  "scene_summary": "I have detected the following items: {object_list}."
+    "navigation": {
+        "intro": "Scanning from right to left. I detect {count} items.",
+        "item_desc": "A {name} {side}, {depth}.",
+        "transition": "Then, "
+    },
+    "alerts": {
+        "hazard": "Caution: {item} detected. {advice}",
+        "safe": "The immediate path appears to be clear."
+    },
+    "location": {
+        "found": "Based on the objects, you are in the {room}.",
+        "unknown": "I cannot identify the specific room yet. Keep scanning."
+    }
 }
