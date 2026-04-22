@@ -1,15 +1,14 @@
 import json
 class InferenceEngine:
     def __init__(self):
-        # Diccionario para nombres amigables en Text-to-Speech
+        # Diccionario para nombres 
         self.display_names = {
-            "bathtub": "bathtub", "bed": "bed", "brush": "brush",
-            "chair": "chair", "closed door": "closed door", "couch": "sofa",
+            "bathtub": "bathtub", "bed": "bed", "brush": "toothbrush", "chair": "chair", "couch": "sofa",
             "countertop": "countertop", "garbage": "trash can", "plant": "plant",
             "refrigerator": "fridge", "shower": "shower", "sink": "sink",
             "stairs": "stairs", "table": "table", "toilet": "toilet",
-            "towels": "towels", "tv": "television", "tv stand": "TV stand",
-            "door": "door", "window": "window", "mirror": "mirror"
+            "towels": "towels", "tv": "television", 
+            "door": "door", "window": "window", 
         }
     def get_scene_report(self, knowledge_base):
         if not knowledge_base:
